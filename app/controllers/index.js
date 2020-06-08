@@ -12,7 +12,9 @@ export default Controller.extend({
 
     actions: {
         saveInvitation() {
-            alert(`Saving of the following email address is in progress: ${this.emailAddress}`);
+            const newInvitation = this.store.createRecord('invitation', {email: this.emailAddress});
+            newInvitation.save();
+            
             this.set('responseMessage', `Thank you! We've just saved your email address: ${this.emailAddress}`);
             this.set('emailAddress', '');
 
