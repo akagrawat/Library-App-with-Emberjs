@@ -16,11 +16,15 @@ export default Controller.extend ({
 
     actions: {
         sendMessage: function(){
+            const newMessage = this.store.createRecord('contact', {email: this.email, message: this.message});
+                newMessage.save().then(() => {
+                    this.set('isSuccess', true);
+                    this.set('successMessage', 'We got your message and we’ll get in touch soon');
+                    this.set('email','');
+                    this.set('message', '');     
+                });
                 alert(`Sending your message in progress...`);
-                this.set('isSuccess', true);
-                this.set('successMessage', 'We got your message and we’ll get in touch soon');
-                this.set('email','');
-                this.set('message', '');
+                
             }
     }
         })
