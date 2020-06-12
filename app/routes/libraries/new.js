@@ -7,7 +7,6 @@ export default class LibrariesNewRoute extends Route {
     }
     @action 
     saveLibrary(newLibrary) {
-        console.log(newLibrary);
             newLibrary.save().then(() => this.transitionTo('libraries'));
     }
 
