@@ -5,6 +5,19 @@ export default class LibrariesNewRoute extends Route {
     model() {
         return this.store.createRecord('library');
     }
+
+    setupController(controller, model){
+        super(controller, model);
+
+        controller.set('title', 'Create a new libraray');
+        controller.set('buttonLabel', 'Create');
+
+    }
+
+    renderTemplate() {
+        this.render('libraries/form');
+    }
+    
     @action 
     saveLibrary(newLibrary) {
             newLibrary.save().then(() => this.transitionTo('libraries'));
@@ -12,13 +25,10 @@ export default class LibrariesNewRoute extends Route {
 
     @action 
     willTransition() {
-        // rollbackAttributes() removes the record from the store
-        // if the model 'isNew'
-
-        // let model = this.controller.get('model');
-        // if (model.get('isNew')) {
-        //     model.destroyRecord();
-        //   }
-        this.controller.get('model').rollbackAttributes();
+        let model = this.controller.get('model');
+  
+        if (model.get('isNew')) {
+          model.destroyRecord();
+        }
       }
 }

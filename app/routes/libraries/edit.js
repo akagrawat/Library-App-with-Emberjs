@@ -6,6 +6,17 @@ export default class LibrariesEditRoute extends Route {
         return this.store.findRecord('library', params.library_id);
     }
 
+    setupController(controller, model){
+      super(controller, model);
+
+      controller.set('title', 'Edit Library');
+      controller.set('buttonLabel', 'Save changes');
+    }
+
+    renderTemplate() {
+      this.render('libraries/form');
+    }
+    
     @action 
     saveLibrary(library) {
         library.save().then(() => this.transitionTo('libraries'));
