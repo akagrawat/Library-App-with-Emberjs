@@ -7,7 +7,7 @@ export default class LibrariesNewRoute extends Route {
     }
 
     setupController(controller, model){
-        super(controller, model);
+        this._super(controller, model);
 
         controller.set('title', 'Create a new libraray');
         controller.set('buttonLabel', 'Create');
@@ -17,7 +17,7 @@ export default class LibrariesNewRoute extends Route {
     renderTemplate() {
         this.render('libraries/form');
     }
-    
+
     @action 
     saveLibrary(newLibrary) {
             newLibrary.save().then(() => this.transitionTo('libraries'));

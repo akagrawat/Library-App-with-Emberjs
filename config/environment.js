@@ -8,12 +8,14 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     firebase: {
-      apiKey: 'xyz',
-      authDomain: 'YOUR-FIREBASE-APP.firebaseapp.com',
-      databaseURL: 'https://YOUR-FIREBASE-APP.firebaseio.com',
-      projectId: 'project-12341234',
-      storageBucket: 'YOUR-FIREBASE-APP.appspot.com',
-      messagingSenderId: '1234'
+      apiKey: "AIzaSyDY3F1AgyOsaH2xthgZJZap1BaRJOGJuvs",
+      authDomain: "ember-new-library-app.firebaseapp.com",
+      databaseURL: "https://ember-new-library-app.firebaseio.com",
+      projectId: "ember-new-library-app",
+      storageBucket: "ember-new-library-app.appspot.com",
+      messagingSenderId: "463087010817",
+      appId: "1:463087010817:web:eca8b3f98e0bf5f24d6c00",
+      measurementId: "G-7GYZQMJSD4"
     },
 
         // if using ember-cli-content-security-policy
@@ -62,6 +64,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV['ember-faker'] = {
+      enabled: true
+    };
   }
 
   return ENV;
